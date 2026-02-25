@@ -56,7 +56,7 @@ Example: The model might fail to recognize "Tesla" as an Organization or "Elon M
 2. Language Sensitivity
 English: The model performs at its peak (~94% F1-score) because it uses the bert-base-cased English weights and English training labels.
 
-Polish: Performance is significantly lower. The model does not understand Polish grammar, especially word inflections (e.g., it may recognize "Gniezno" but fail on "Gniezna").
+Polish: Performance is significantly lower. The model does not understand Polish grammar, especially word inflections (e.g., it may recognize "Poznań" but fail on "Poznania").
 
 3. Comparison Examples
 Below are the real-world test cases used to verify the model's behavior:

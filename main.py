@@ -11,7 +11,7 @@ def train():
     EPOCHS = 1
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
-    print(f"Uruchamiam na: {DEVICE}")
+    print(f"Running on: {DEVICE}")
 
     train_ds = ConllDataset("train")
     train_loader = DataLoader(train_ds, batch_size=BATCH_SIZE, shuffle=True)
@@ -40,7 +40,7 @@ def train():
             loop.set_postfix(loss=loss.item())
 
     torch.save(model.state_dict(), "ner_model.pth")
-    print("Gotowe! Model zapisany jako ner_model.pth")
+    print("Done! Model saved as ner_model.pth")
 
 if __name__ == "__main__":
     train()

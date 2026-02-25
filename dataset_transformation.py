@@ -9,7 +9,6 @@ tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
 class ConllDataset(Dataset):
     def __init__(self, split_name="train"):
         try:
-            print(f"[*] Przygotowuję dane dla: {split_name}")
             base_path = kagglehub.dataset_download("juliangarratt/conll2003-dataset")
 
             kaggle_map = {
@@ -26,14 +25,11 @@ class ConllDataset(Dataset):
                     break
             
             if not file_path:
-                raise FileNotFoundError(f"Nie znaleziono pliku {target_name} w {base_path}")
+                raise FileNotFoundError()
 
-            print(f"[V] Wczytuję plik: {file_path}")
             self.raw_data = self._parse_conll(file_path)
-            print(f"[V] Sukces! Załadowano {len(self.raw_data)} zdań.")
             
         except Exception as e:
-            print(f"[X] Błąd: {e}")
             raise e
 
     def _parse_conll(self, file_path):
